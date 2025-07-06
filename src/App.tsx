@@ -27,6 +27,8 @@ const MapTest = () => {
             source: vectorSource.current,
         })
 
+        if (!mapRef.current) return
+
         mapObj.current = new Map({
             target: mapRef.current,
             layers: [tileLayer, markerLayer],
@@ -38,7 +40,7 @@ const MapTest = () => {
         })
 
         return () => {
-            mapObj.current?.setTarget(null)
+            mapObj.current?.setTarget(undefined)
         }
     }, [])
 
